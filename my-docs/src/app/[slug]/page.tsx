@@ -2,14 +2,13 @@ import { getPostBySlug } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 
-// 正确的类型定义
-interface PageProps {
-  params: {
-    slug: string
-  }
+// 使用 Next.js 的标准类型
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function Post({ params }: PageProps) {
+export default async function Post({ params, searchParams }: Props) {
   const post = getPostBySlug(params.slug)
   
   if (!post) {
@@ -24,4 +23,9 @@ export default async function Post({ params }: PageProps) {
       </div>
     </article>
   )
+}
+
+// 可选：生成静态参数
+export async function generateStaticParams() {
+  return []
 }

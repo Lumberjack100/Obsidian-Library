@@ -170,8 +170,7 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
-      "publish:发布更改": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "5d7d8a49bf6e1888",
