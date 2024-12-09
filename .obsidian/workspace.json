@@ -20,20 +20,6 @@
               "icon": "lucide-file",
               "title": "DAS 蓝牙调试日志"
             }
-          },
-          {
-            "id": "a4980f692c40d5fd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "知识库/DAS 蓝牙调试日志.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "DAS 蓝牙调试日志"
-            }
           }
         ]
       }
@@ -87,8 +73,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -189,9 +174,49 @@
       "publish:发布更改": false
     }
   },
-  "active": "0275aaf8f7a53368",
+  "active": "5d7d8a49bf6e1888",
   "lastOpenFiles": [
-    "知识库/米度指令.md",
-    "知识库/DAS 蓝牙调试日志.md"
+    "my-docs/content/米度指令.md",
+    "my-docs/src/app/[slug]/page.tsx",
+    "my-docs/src/app/[slug]",
+    "my-docs/src/app/未命名文件夹",
+    "my-docs/src/lib/mdx.ts",
+    "my-docs/src/lib",
+    "my-docs/content",
+    "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/postcss-selector-parser.d.ts",
+    "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/README.md",
+    "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
+    "my-docs/node_modules/parse-entities/node_modules/@types/unist/package.json",
+    "my-docs/node_modules/parse-entities/node_modules/@types/unist/index.d.ts",
+    "my-docs/node_modules/parse-entities/node_modules/@types/unist/LICENSE",
+    "my-docs/node_modules/parse-entities/node_modules/@types/unist/README.md",
+    "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/API.md",
+    "my-docs/node_modules/unist-util-remove/readme.md",
+    "my-docs/node_modules/gray-matter/node_modules/js-yaml/README.md",
+    "my-docs/node_modules/gray-matter/node_modules/js-yaml/CHANGELOG.md",
+    "my-docs/node_modules/unist-util-remove/node_modules/unist-util-is/readme.md",
+    "my-docs/node_modules/@babel/code-frame/README.md",
+    "my-docs/node_modules/unist-util-remove/node_modules/@types/unist/README.md",
+    "my-docs/node_modules/gray-matter/node_modules/argparse/README.md",
+    "my-docs/node_modules/gray-matter/node_modules/argparse/CHANGELOG.md",
+    "my-docs/node_modules/hast-util-to-estree/node_modules/style-to-object/README.md",
+    "my-docs/node_modules/next-mdx-remote/header.png",
+    "my-docs/node_modules/unist-util-visit/node_modules/unist-util-visit-parents/readme.md",
+    "my-docs/node_modules/unist-util-visit-parents/node_modules/@types/unist/README.md",
+    "my-docs/node_modules/next-mdx-remote/README.md",
+    "my-docs/node_modules/next-mdx-remote/CHANGELOG.md",
+    "my-docs/node_modules/unist-util-visit-parents/node_modules/unist-util-is/readme.md",
+    "my-docs/node_modules/hast-util-to-estree/node_modules/inline-style-parser/README.md",
+    "my-docs/node_modules/hast-util-to-estree/node_modules/inline-style-parser/CHANGELOG.md",
+    "my-docs/node_modules/gray-matter/README.md",
+    "my-docs/node_modules/gray-matter/CHANGELOG.md",
+    "my-docs/node_modules/@tailwindcss/typography/README.md",
+    "my-docs/node_modules/kind-of/README.md",
+    "my-docs/node_modules/kind-of/CHANGELOG.md",
+    "my-docs/public/window.svg",
+    "my-docs/public/vercel.svg",
+    "my-docs/public/next.svg",
+    "my-docs/public/globe.svg",
+    "my-docs/public/file.svg"
   ]
 }
