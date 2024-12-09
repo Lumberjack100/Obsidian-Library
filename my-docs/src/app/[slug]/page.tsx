@@ -2,7 +2,14 @@ import { getPostBySlug } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 
-export default function Post({ params }: { params: { slug: string } }) {
+// 正确的类型定义
+interface PageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default async function Post({ params }: PageProps) {
   const post = getPostBySlug(params.slug)
   
   if (!post) {
