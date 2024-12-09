@@ -11,10 +11,14 @@
             "id": "a41e147373d4dab3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "知识库/米度指令.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "米度指令"
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "知识库/米度指令.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "米度指令 的反向链接列表"
             }
           },
           {
@@ -107,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "知识库/米度指令.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "米度指令 的出链列表"
             }
           },
           {
@@ -132,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "知识库/米度指令.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "米度指令 的大纲"
             }
           },
           {
@@ -166,5 +174,8 @@
     }
   },
   "active": "5d7d8a49bf6e1888",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "知识库/DAS 蓝牙调试日志.md",
+    "知识库/米度指令.md"
+  ]
 }
