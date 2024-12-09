@@ -2,13 +2,11 @@ import { getPostBySlug } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 
-// 使用 Next.js 的标准类型
 type Props = {
   params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function Post({ params, searchParams }: Props) {
+export default async function Post({ params }: Props) {
   const post = getPostBySlug(params.slug)
   
   if (!post) {
@@ -25,7 +23,6 @@ export default async function Post({ params, searchParams }: Props) {
   )
 }
 
-// 可选：生成静态参数
 export async function generateStaticParams() {
   return []
 }
