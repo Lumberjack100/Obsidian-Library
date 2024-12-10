@@ -2,12 +2,14 @@ import { getPostBySlug } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 
+type Props = {
+  params: {
+    slug: string
+  }
+}
+
 // 使用 Next.js 的内置类型
-export default async function Post({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default function Page({ params }: Props) {
   const post = getPostBySlug(params.slug)
   
   if (!post) {
