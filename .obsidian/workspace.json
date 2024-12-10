@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/DAS 蓝牙调试日志.md",
+                "file": "知识库/Home.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "DAS 蓝牙调试日志"
+              "title": "Home"
             }
           }
         ]
@@ -73,8 +73,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -175,8 +174,12 @@
       "digitalgarden:Digital Garden Publication Center": false
     }
   },
-  "active": "1447416774dc98f1",
+  "active": "a41e147373d4dab3",
   "lastOpenFiles": [
+    "知识库/DAS 蓝牙调试日志.md",
+    "知识库/米度指令.md",
+    "知识库/一句话识别Android SDK.md",
+    "知识库/Home.md",
     "my-docs/next.config.mjs",
     "my-docs/next.config.js",
     "my-docs/content/米度指令.md",
@@ -190,7 +193,6 @@
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/package.json",
-    "my-docs/node_modules/parse-entities/node_modules/@types/unist/index.d.ts",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/API.md",
     "my-docs/node_modules/unist-util-remove/readme.md",
@@ -211,9 +213,6 @@
     "my-docs/node_modules/hast-util-to-estree/node_modules/inline-style-parser/README.md",
     "my-docs/node_modules/hast-util-to-estree/node_modules/inline-style-parser/CHANGELOG.md",
     "my-docs/node_modules/gray-matter/README.md",
-    "my-docs/node_modules/gray-matter/CHANGELOG.md",
-    "my-docs/node_modules/@tailwindcss/typography/README.md",
-    "my-docs/node_modules/kind-of/README.md",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
     "my-docs/public/next.svg",
