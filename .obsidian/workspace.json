@@ -173,8 +173,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5d7d8a49bf6e1888",
+  "active": "0275aaf8f7a53368",
   "lastOpenFiles": [
+    "my-docs/next.config.mjs",
+    "my-docs/next.config.js",
     "my-docs/content/米度指令.md",
     "my-docs/src/app/[slug]/page.tsx",
     "my-docs/src/app/[slug]",
@@ -187,7 +189,6 @@
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/package.json",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/index.d.ts",
-    "my-docs/node_modules/parse-entities/node_modules/@types/unist/LICENSE",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/API.md",
     "my-docs/node_modules/unist-util-remove/readme.md",
@@ -211,7 +212,6 @@
     "my-docs/node_modules/gray-matter/CHANGELOG.md",
     "my-docs/node_modules/@tailwindcss/typography/README.md",
     "my-docs/node_modules/kind-of/README.md",
-    "my-docs/node_modules/kind-of/CHANGELOG.md",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
     "my-docs/public/next.svg",
