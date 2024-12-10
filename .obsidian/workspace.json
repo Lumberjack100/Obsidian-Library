@@ -73,7 +73,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -170,10 +171,11 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "digitalgarden:Digital Garden Publication Center": false
     }
   },
-  "active": "0275aaf8f7a53368",
+  "active": "1447416774dc98f1",
   "lastOpenFiles": [
     "my-docs/next.config.mjs",
     "my-docs/next.config.js",
