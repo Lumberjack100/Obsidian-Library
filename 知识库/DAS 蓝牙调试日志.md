@@ -1,6 +1,4 @@
----
-dg-publish: true
----
+
 
 
 ####  DAS 设备配置主页面
