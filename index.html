@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的知识库</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable/dist/css/theme-simple.css">
 </head>
+
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
       name: '我的知识库',
       repo: '',
+      basePath: '/', // 改为根路径
+      homepage: 'README.md',
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      },
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 2,
@@ -46,4 +54,5 @@
   <!-- 字数统计插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-count/dist/countable.min.js"></script>
 </body>
+
 </html>

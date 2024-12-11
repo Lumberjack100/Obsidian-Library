@@ -3,11 +3,11 @@ const path = require('path');
 
 // 配置目录
 const rootDir = path.join(__dirname, '知识库');
-const sidebarFile = path.join(rootDir, '_sidebar.md');
-const navbarFile = path.join(rootDir, '_navbar.md');
+const sidebarFile = path.join(__dirname, '_sidebar.md');
+const navbarFile = path.join(__dirname, '_navbar.md');
 
 // 递归读取目录结构，自动生成 _sidebar.md
-function generateSidebar(dir, parentPath = '') {
+function generateSidebar(dir, parentPath = '/知识库') {  // 添加基础路径
   const items = fs.readdirSync(dir).filter((item) => {
     // 排除特殊文件
     if (item.startsWith('_') || item.startsWith('.')) return false;
@@ -19,7 +19,6 @@ function generateSidebar(dir, parentPath = '') {
   });
 
   let sidebarContent = '';
-
   items.forEach((item) => {
     const fullPath = path.join(dir, item);
     const relativePath = path.join(parentPath, item);
@@ -30,17 +29,19 @@ function generateSidebar(dir, parentPath = '') {
       sidebarContent += generateSidebar(fullPath, relativePath);
     } else if (stat.isFile()) {
       const displayName = item.replace('.md', '');
-      sidebarContent += `  - [${displayName}](${relativePath.replace(/\\/g, '/')})\n`;
+      const itemPath = path.join(parentPath, item).replace(/\\/g, '/');
+      sidebarContent += `  - [${displayName}](${itemPath})\n`;
     }
   });
 
   return sidebarContent;
 }
 
-// 获取一级目录作为导航栏项目
+
+//生成导航栏项目
 function generateNavbar(rootDir) {
   let navbarContent = '- [首页](/)\n';  // 保留首页链接
-  
+
   // 读取根目录下的文件和文件夹
   const items = fs.readdirSync(rootDir).filter(item => {
     // 排除特殊文件和非目录项
@@ -49,9 +50,8 @@ function generateNavbar(rootDir) {
     return fs.statSync(fullPath).isDirectory();
   });
 
-  // 将一级目录添加到导航栏
   items.forEach(item => {
-    const relativePath = `/${item}/`;
+    const relativePath = `/知识库/${item}/`;  // 添加知识库前缀
     navbarContent += `- [${item}](${relativePath})\n`;
   });
 

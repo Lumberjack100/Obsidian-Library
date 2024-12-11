@@ -174,8 +174,11 @@
       "digitalgarden:Digital Garden Publication Center": false
     }
   },
-  "active": "a41e147373d4dab3",
+  "active": "0275aaf8f7a53368",
   "lastOpenFiles": [
+    "_navbar.md",
+    "_sidebar.md",
+    "README.md",
     "知识库/一句话识别Android SDK.md",
     "知识库/_navbar.md",
     "知识库/_sidebar.md",
@@ -210,9 +213,6 @@
     "my-docs/node_modules/hast-util-to-estree/node_modules/style-to-object/README.md",
     "my-docs/node_modules/next-mdx-remote/header.png",
     "my-docs/node_modules/unist-util-visit/node_modules/unist-util-visit-parents/readme.md",
-    "my-docs/node_modules/unist-util-visit-parents/node_modules/@types/unist/README.md",
-    "my-docs/node_modules/next-mdx-remote/README.md",
-    "my-docs/node_modules/next-mdx-remote/CHANGELOG.md",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
     "my-docs/public/next.svg",
