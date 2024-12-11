@@ -1,0 +1,12 @@
+{
+  "name": "obsidian-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-docsify.js",
+  "scripts": {
+  "generate": "node generate-docsify.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
