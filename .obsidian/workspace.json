@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/指令文档/一体化.md",
-                "mode": "source",
+                "file": "知识库/指令文档/DAS蓝牙调试日志.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "一体化"
+              "title": "DAS蓝牙调试日志"
             }
           }
         ]
@@ -93,10 +93,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/DAS 蓝牙调试日志.md"
+                "file": "知识库/指令文档/DAS蓝牙调试日志.md"
               },
               "icon": "lucide-list",
-              "title": "DAS 蓝牙调试日志 的大纲"
+              "title": "DAS蓝牙调试日志 的大纲"
             }
           },
           {
@@ -176,15 +176,15 @@
   },
   "active": "0275aaf8f7a53368",
   "lastOpenFiles": [
+    "知识库/指令文档/一体化.md",
+    "知识库/指令文档/米度指令.md",
+    "知识库/指令文档/DAS蓝牙调试日志.md",
     "知识库/指令文档/README.md",
     "generate-docsify.js",
     "知识库/README.md",
-    "知识库/指令文档/米度指令.md",
-    "知识库/指令文档/一体化.md",
     "_sidebar.md",
     "_navbar.md",
     "知识库/指令文档/DAS 蓝牙调试日志.md",
-    "知识库/指令文档/DAS蓝牙调试日志.md",
     "README.md",
     "知识库/一句话识别Android SDK.md",
     "知识库/_navbar.md",
