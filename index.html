@@ -5,90 +5,224 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的知识库</title>
+  <!-- 引入 Docsify 主题样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable/dist/css/theme-simple.css">
-  <!-- 添加侧边栏折叠样式 -->
+  <!-- 引入侧边栏折叠样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <!-- 引入 KaTeX 样式以支持数学公式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <!-- 引入 Mermaid 样式以支持流程图 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app"></div> <!-- Docsify 渲染的主要容器 -->
   <script>
+    // Docsify 配置
     window.$docsify = {
-      name: '我的知识库',
-      repo: '',
-      basePath: './',
-      homepage: 'README.md',
+      name: '我的知识库', // 网站名称
+      repo: '', // GitHub 仓库地址
+      basePath: '/', // 基础路径
+      homepage: 'README.md', // 首页文件
 
       // 侧边栏配置
-      loadSidebar: true,
-      autoHeader: true,
-      subMaxLevel: 3,
-      sidebarDisplayLevel: 1, // 设置侧边栏默认展开层级
-
-      // 导航配置
-      auto2top: true,
-      mergeNavbar: true,
-
-      //搜索配置
-      search: {
-        paths: 'auto',
-        placeholder: '搜索...',
-        noData: '没有找到结果',
-        depth: 6
-      },
-
-      //主题配置
-      themeable: {
-        readyTransition: true,
-        responsiveTables: true
-      },
-
-      //分页导航
-      pagination: {
-        previousText: '上一章节',
-        nextText: '下一章节',
-        crossChapter: true,
-        crossChapterText: true,
-      },
-
-      // 配置文件别名，处理路径问题
+      loadSidebar: true, // 启用侧边栏
       alias: {
-        '/.*/_sidebar.md': '/_sidebar.md',
-        '/.*/_navbar.md': '/_navbar.md',
-        '^/知识库/(.*)': '/知识库/$1'
+        '/.*/_sidebar.md': '/_sidebar.md' // 侧边栏文件路径别名
+      },
+      autoHeader: true, // 自动生成标题
+      subMaxLevel: 4, // 最大支持渲染的标题层级
+      maxLevel: 4, // 忽略副标题
+      sidebarDisplayLevel: 1, // 初始加载的侧边栏层级
+
+      // 路径导航配置
+      relativePath: true, // 使用相对路径
+      auto2top: true, // 自动滚动到顶部
+      mergeNavbar: true, // 合并导航栏
+
+      // 搜索配置
+      search: {
+        paths: 'auto', // 搜索路径
+        placeholder: '搜索...', // 搜索框占位符
+        noData: '没有找到结果', // 无结果提示
+        depth: 6 // 搜索深度
+      },
+
+      // 主题配置
+      themeable: {
+        readyTransition: true, // 启用过渡动画
+        responsiveTables: true // 响应式表格
+      },
+
+      // 分页导航配置
+      pagination: {
+        previousText: '上一章节', // 上一页文本
+        nextText: '下一章节', // 下一页文本
+        crossChapter: true, // 跨章节导航
+        crossChapterText: true, // 跨章节文本
       },
 
       // 启用调试模式
       debug: true,
 
-      // 插件调试
+      // KaTeX 数学公式配置
+      katex: {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ]
+      },
+
+      // 扩展 Markdown 解析
+      markdown: {
+        smartypants: true, // 启用智能标点
+        renderer: {
+          code: function (code, lang) {
+            if (lang === "mermaid") {
+              return '<div class="mermaid">' + code + "</div>"; // Mermaid 代码块处理
+            }
+            return this.origin.code.apply(this, arguments); // 默认代码块处理
+          },
+          image: function (href, title, text) {
+            // 处理 Obsidian 格式的图片大小语法 ![[image.png|100x100]]
+            const sizeMatch = href.match(/^(.*?)\|(\d+)x(\d+)$/);
+            if (sizeMatch) {
+              const [_, imgPath, width, height] = sizeMatch;
+              return `<img src="${imgPath}" alt="${text}" width="${width}" height="${height}" />`;
+            }
+            return this.origin.image.apply(this, arguments); // 默认图片处理
+          },
+          // Add a new function to handle escaping of $$
+          text: function (text) {
+            // Escape $$ to prevent conversion to \[
+            return text.replace(/\$\$/g, '\\$\\$');
+          }
+        }
+      },
+
+      // 插件配置
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (content) {
-            // 打印当前访问的文件路径
-            console.log('Loading file:', vm.route.file);
+            // 处理 Obsidian 内部链接 [[Page]] 转换为 [Page](Page)
+            content = content.replace(/\[\[(.*?)\]\]/g, function (match, p1) {
+              if (p1.includes('|')) {
+                const [link, text] = p1.split('|');
+                return `[${text.trim()}](${link.trim()})`;
+              }
+              return `[${p1}](${p1})`;
+            });
+
+            // 处理 Callout/Admonition 语法
+            content = content.replace(/> \[!(\w+)\](.*?)\n((?:>.*?\n?)*)/g, function (match, type, title, content) {
+              const cleanContent = content.replace(/^>/g, '').trim();
+              return `<div class="callout callout-${type.toLowerCase()}">\n`
+                + `<div class="callout-title">${title.trim()}</div>\n`
+                + `<div class="callout-content">\n\n${cleanContent}\n\n</div>\n`
+                + `</div>\n`;
+            });
+
+            // 处理高亮语法 ==highlighted text==
+            content = content.replace(/==(.*?)==/g, '<mark>$1</mark>');
+
+            // 处理注释语法 %%comment%%
+            content = content.replace(/%%([^%].*?)%%/g, '<!-- $1 -->');
+
+            // 处理任务列表
+            content = content.replace(/- \[ \]/g, '- [ ] '); // 未完成任务
+            content = content.replace(/- \[x\]/g, '- [x] '); // 已完成任务
+
             return content;
+          });
+
+          hook.doneEach(function () {
+            // 为 callout 添加样式
+            if (!document.getElementById('obsidian-style')) {
+              const style = document.createElement('style');
+              style.id = 'obsidian-style';
+              style.textContent = `
+              .callout {
+                border-left: 4px solid;
+                border-radius: 2px;
+                padding: 16px;
+                margin: 16px 0;
+                background-color: var(--callout-bg);
+              }
+              .callout-title {
+                font-weight: 600;
+                margin-bottom: 8px;
+              }
+              .callout-content {
+                margin-left: 8px;
+              }
+              .callout-note { border-color: #448aff; }
+              .callout-tip { border-color: #00bfa5; }
+              .callout-warning { border-color: #ff9100; }
+              .callout-danger { border-color: #ff5252; }
+              mark {
+                background-color: #fff8c5;
+                padding: 0 2px;
+              }
+            `;
+              document.head.appendChild(style);
+            }
           });
         }
       ]
     };
+
+    // Mermaid 初始化
+    mermaid.initialize({
+      startOnLoad: true, // 页面加载时自动渲染
+      securityLevel: 'loose', // 安全级别
+      theme: 'default' // 主题
+    });
   </script>
-  <!-- docsify -->
+  <!-- 引入 Docsify 和相关插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <!-- 搜索插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 主题插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable"></script>
-  <!-- 图片缩放插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 复制代码插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
-  <!-- 字数统计插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-count/dist/countable.min.js"></script>
-  <!-- 侧边栏折叠插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <!-- 分页导航插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-task-lists/dist/docsify-task-lists.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+
+  <!-- 自定义样式 -->
+  <style>
+    .markdown-section a {
+      text-decoration: none;
+      border-bottom: 1px solid var(--theme-color);
+    }
+
+    .markdown-section img {
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .markdown-section pre {
+      border-radius: 4px;
+    }
+
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item input[type='checkbox'] {
+      margin-right: 8px;
+    }
+  </style>
 </body>
 
 </html>

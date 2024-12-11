@@ -1,94 +1,182 @@
 const fs = require('fs');
 const path = require('path');
 
-// 配置目录
-const rootDir = path.join(__dirname, '知识库');
-const sidebarFile = path.join(__dirname, '_sidebar.md');
-const navbarFile = path.join(__dirname, '_navbar.md');
+// 配置选项
+const config = {
+  rootDir: path.join(__dirname, '知识库'),
+  sidebarFile: path.join(__dirname, '_sidebar.md'),
+  excludeDirs: ['.git', '.obsidian', 'node_modules'],  // 要排除的目录
+  excludeFiles: ['.DS_Store'],  // 要排除的文件
+  maxDepth: 3,  // 最大目录深度
+  defaultReadme: '# 目录简介\n\n这是默认的README文件。',  // 默认README内容
+};
 
-// 递归读取目录结构，自动生成 _sidebar.md
-function generateSidebar(dir, parentPath = '') {  // 移除默认的 /知识库 前缀
-  const items = fs.readdirSync(dir)
-    .filter((item) => {
-      if (item.startsWith('_') || item.startsWith('.')) return false;
+/**
+ * 检查路径是否应该被排除
+ * @param {string} itemPath - 文件或目录路径
+ * @returns {boolean} - 是否应该排除
+ */
+function shouldExclude(itemPath) {
+  const basename = path.basename(itemPath);
+  return (
+    basename.startsWith('.') ||
+    basename.startsWith('_') ||
+    config.excludeDirs.includes(basename) ||
+    config.excludeFiles.includes(basename)
+  );
+}
+
+/**
+ * 确保目录存在README.md文件
+ * @param {string} dirPath - 目录路径
+ */
+function ensureReadmeExists(dirPath) {
+  const readmePath = path.join(dirPath, 'README.md');
+  if (!fs.existsSync(readmePath)) {
+    try {
+      fs.writeFileSync(readmePath, config.defaultReadme);
+      console.log(`Created README.md in ${dirPath}`);
+    } catch (error) {
+      console.warn(`Warning: Could not create README.md in ${dirPath}:`, error.message);
+    }
+  }
+}
+
+/**
+ * 生成侧边栏内容
+ * @param {string} dir - 当前处理的目录
+ * @param {number} depth - 当前目录深度
+ * @returns {string} - 生成的侧边栏内容
+ */
+function generateSidebarContent(dir, depth = 0) {
+  if (depth >= config.maxDepth) {
+    return '';
+  }
+
+  let content = '';
+
+  try {
+    const items = fs.readdirSync(dir);
+
+    // 获取所有目录
+    const directories = items
+      .filter(item => {
+        const fullPath = path.join(dir, item);
+        return (
+          fs.existsSync(fullPath) &&
+          fs.statSync(fullPath).isDirectory() &&
+          !shouldExclude(fullPath)
+        );
+      })
+      .sort(); // 目录按字母顺序排序
+
+    // 获取所有文件
+    const files = items
+      .filter(item => {
+        const fullPath = path.join(dir, item);
+        return (
+          fs.existsSync(fullPath) &&
+          fs.statSync(fullPath).isFile() &&
+          item.endsWith('.md') &&
+          item !== 'README.md' &&
+          !shouldExclude(fullPath)
+        );
+      })
+      .sort(); // 文件按字母顺序排序
+
+    // 处理目录
+    directories.forEach(item => {
       const fullPath = path.join(dir, item);
-      if (fs.statSync(fullPath).isDirectory()) return true;
-      return path.extname(item) === '.md';
-    })
-    .sort((a, b) => {
-      const aPath = path.join(dir, a);
-      const bPath = path.join(dir, b);
-      const aIsDir = fs.statSync(aPath).isDirectory();
-      const bIsDir = fs.statSync(bPath).isDirectory();
-      if (aIsDir && !bIsDir) return -1;
-      if (!aIsDir && bIsDir) return 1;
-      return a.localeCompare(b);
+      const relativePath = path
+        .normalize(fullPath.replace(__dirname, ''))
+        .replace(/\\/g, '/');
+
+      ensureReadmeExists(fullPath);
+
+      // 添加目录标题
+      content += `${'  '.repeat(depth)}- [${item}](${relativePath}/README.md)\n`;
+
+      // 递归处理子目录
+      const subContent = generateSidebarContent(fullPath, depth + 1);
+      if (subContent) {
+        content += subContent;
+      }
     });
 
-  let sidebarContent = '';
+    // 处理文件
+    files.forEach(file => {
+      const fullPath = path.join(dir, file);
+      const relativePath = path
+        .normalize(fullPath.replace(__dirname, ''))
+        .replace(/\\/g, '/');
+      const displayName = file.replace('.md', '');
 
-  items.forEach((item) => {
-    const fullPath = path.join(dir, item);
-    const stat = fs.statSync(fullPath);
+      content += `${'  '.repeat(depth)}- [${displayName}](${relativePath})\n`;
+    });
 
-    if (stat.isDirectory()) {
-      sidebarContent += `- ${item}\n`;
-      const subContent = generateSidebar(fullPath, path.join(parentPath, item));
-      sidebarContent += subContent.split('\n').map(line =>
-        line ? '  ' + line : line
-      ).join('\n');
-    } else if (stat.isFile()) {
-      const displayName = item.replace('.md', '');
-      // 添加 /知识库/ 前缀到路径中
-      const relativePath = '/知识库/' + path.join(parentPath, item)
-        .replace(/\\/g, '/')
-        .replace(/^\//, '');
-      sidebarContent += `- [${displayName}](${relativePath})\n`;
-    }
-  });
+  } catch (error) {
+    console.error(`Error processing directory ${dir}:`, error.message);
+    return '';
+  }
 
-  return sidebarContent;
+  return content;
 }
 
-
-//生成导航栏项目
-function generateNavbar(rootDir) {
-  let navbarContent = '- [首页](/)\n';
-
-  const items = fs.readdirSync(rootDir).filter(item => {
-    if (item.startsWith('_') || item.startsWith('.')) return false;
-    const fullPath = path.join(rootDir, item);
-    return fs.statSync(fullPath).isDirectory();
-  });
-
-  items.forEach(item => {
-    const dirPath = path.join(rootDir, item);
-    const readmePath = path.join(dirPath, 'README.md');
-
-    // 如果目录下没有 README.md，创建一个
-    if (!fs.existsSync(readmePath)) {
-      try {
-        fs.writeFileSync(readmePath, `# ${item}\n\n这里是${item}的介绍`);
-        console.log(`Created README.md in ${item} directory`);
-      } catch (error) {
-        console.error(`Error creating README.md in ${item} directory:`, error);
+/**
+ * 监听文件变化并更新侧边栏
+ */
+function watchForChanges() {
+  try {
+    fs.watch(config.rootDir, { recursive: true }, (eventType, filename) => {
+      if (filename) {
+        console.log(`Detected ${eventType} in ${filename}`);
+        updateSidebar();
       }
+    });
+    console.log('Watching for changes...');
+  } catch (error) {
+    console.warn('Warning: File watching not supported on this system:', error.message);
+  }
+}
+
+/**
+ * 更新侧边栏文件
+ */
+function updateSidebar() {
+  try {
+    // 确保根目录存在
+    if (!fs.existsSync(config.rootDir)) {
+      throw new Error(`Root directory ${config.rootDir} does not exist`);
     }
 
-    // 导航栏链接指向 README.md
-    const relativePath = `/知识库/${item}/README.md`;
-    navbarContent += `- [${item}](${relativePath})\n`;
-  });
+    // 生成侧边栏内容
+    const sidebarContent = generateSidebarContent(config.rootDir);
 
-  return navbarContent;
+    // 确保父目录存在
+    const sidebarDir = path.dirname(config.sidebarFile);
+    if (!fs.existsSync(sidebarDir)) {
+      fs.mkdirSync(sidebarDir, { recursive: true });
+    }
+
+    // 写入文件
+    fs.writeFileSync(config.sidebarFile, sidebarContent, 'utf8');
+    console.log('Successfully updated _sidebar.md');
+  } catch (error) {
+    console.error('Error updating sidebar:', error.message);
+    process.exit(1);
+  }
 }
 
-// 写入文件
-try {
-  fs.writeFileSync(sidebarFile, generateSidebar(rootDir));
-  fs.writeFileSync(navbarFile, generateNavbar(rootDir));
-  console.log('_sidebar.md 和 _navbar.md 已生成');
-} catch (error) {
-  console.error('生成文件时出错：', error);
-  process.exit(1);
+// 主函数
+function main() {
+  console.log('Starting sidebar generation...');
+  updateSidebar();
+
+  // 如果设置了 WATCH 环境变量，启动文件监听
+  if (process.env.WATCH === 'true') {
+    watchForChanges();
+  }
 }
+
+// 运行主函数
+main();

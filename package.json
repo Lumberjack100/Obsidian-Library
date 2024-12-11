@@ -15,9 +15,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "docsify-cli": "^4.4.3",
-    "docsify-search": "^1.0.4",
-    "docsify-sidebar-collapse": "^1.0.3",
-    "docsify-pagination": "^2.6.5"
+    "docsify-cli": "^4.4.3"
   }
 }
