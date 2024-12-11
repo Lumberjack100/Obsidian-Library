@@ -19,17 +19,15 @@
       basePath: './',
       homepage: 'README.md',
 
-      //自动生成侧边栏
+      // 侧边栏配置
       loadSidebar: true,
       autoHeader: true,
       subMaxLevel: 3,
       sidebarDisplayLevel: 1, // 设置侧边栏默认展开层级
 
-      //自动生成导航
+      // 导航配置
       auto2top: true,
       mergeNavbar: true,
-      //自动生成页面标题
-      autoHeader: true,
 
       //搜索配置
       search: {
@@ -57,17 +55,8 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
         '/.*/_navbar.md': '/_navbar.md',
-        // 添加知识库目录的别名
         '^/知识库/(.*)': '/知识库/$1'
       },
-
-      // 配置路径匹配
-      routes: {
-        '/知识库/.*': '知识库'
-      },
-
-      // 显示文件路径
-      formatUpdated: '{MM}/{DD} {HH}:{mm}',
 
       // 启用调试模式
       debug: true,

@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Obsidian Docsify Integration",
   "scripts": {
-    "start": "docsify serve ."
+    "generate": "node generate-docsify.js",
+    "prestart": "npm run generate",
+    "start": "docsify serve .",
+    "preview": "docsify serve . --port 3000 --open"
   },
   "keywords": [
     "obsidian",
