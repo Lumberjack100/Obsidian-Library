@@ -5,7 +5,7 @@
   "main": "generate-docsify.js",
   "scripts": {
     "generate": "node generate-docsify.js",
-    "start": "docsify serve 知识库"
+    "start": "docsify serve ."
   },
   "keywords": [
     "obsidian",
