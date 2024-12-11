@@ -3,23 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Knowledge Base</title>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+  <title>我的知识库</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable/dist/css/theme-simple.css">
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: 'My Knowledge Base',
+      name: '我的知识库',
       repo: '',
-      loadSidebar: true, // 启用侧边栏
-      subMaxLevel: 2,    // 设置目录最大层级
-      search: 'auto',    // 启用搜索
+      loadSidebar: true,
+      loadNavbar: true,
+      subMaxLevel: 2,
+      auto2top: true,     // 自动跳转到页面顶部
+      mergeNavbar: true,  // 小屏设备下合并导航栏到侧边栏
+      coverpage: false,   // 是否启用封面页
+      notFoundPage: true, // 404页面
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索...',
+        noData: '没有找到结果',
+        depth: 6
+      },
+      // 主题配置
+      themeable: {
+        readyTransition: true,
+        responsiveTables: true
+      }
     };
   </script>
+  <!-- docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <!-- 搜索插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 主题插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable"></script>
+  <!-- 图片缩放插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 复制代码插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <!-- 字数统计插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-count/dist/countable.min.js"></script>
 </body>
 </html>

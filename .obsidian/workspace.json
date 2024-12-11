@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/一句话识别Android SDK.md",
+                "file": "知识库/指令文档/DAS 蓝牙调试日志.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "一句话识别Android SDK"
+              "title": "DAS 蓝牙调试日志"
             }
           }
         ]
@@ -174,8 +174,9 @@
       "digitalgarden:Digital Garden Publication Center": false
     }
   },
-  "active": "5d7d8a49bf6e1888",
+  "active": "a41e147373d4dab3",
   "lastOpenFiles": [
+    "知识库/一句话识别Android SDK.md",
     "知识库/_navbar.md",
     "知识库/_sidebar.md",
     "package.json",
@@ -189,7 +190,6 @@
     "知识库/README.md",
     "知识库/指令文档/DAS 蓝牙调试日志.md",
     "知识库/Home.md",
-    "知识库/一句话识别Android SDK.md",
     "知识库/指令文档/米度指令.md",
     "my-docs/next.config.mjs",
     "my-docs/next.config.js",
