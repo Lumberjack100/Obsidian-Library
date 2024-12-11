@@ -2,9 +2,7 @@
   "name": "obsidian-library",
   "version": "1.0.0",
   "description": "Obsidian Docsify Integration",
-  "main": "generate-docsify.js",
   "scripts": {
-    "generate": "node generate-docsify.js",
     "start": "docsify serve ."
   },
   "keywords": [
@@ -15,6 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "docsify-cli": "^4.4.3",
-    "docsify-search": "^1.0.4"
+    "docsify-search": "^1.0.4",
+    "docsify-sidebar-collapse": "^1.0.3",
+    "docsify-pagination": "^2.6.5"
   }
 }

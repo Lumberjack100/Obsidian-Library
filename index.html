@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的知识库</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable/dist/css/theme-simple.css">
+  <!-- 添加侧边栏折叠样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
 </head>
 
 <body>
@@ -14,31 +16,72 @@
     window.$docsify = {
       name: '我的知识库',
       repo: '',
-      basePath: '/', // 改为根路径
+      basePath: './',
       homepage: 'README.md',
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md',
-        '/.*/_navbar.md': '/_navbar.md'
-      },
+
+      //自动生成侧边栏
       loadSidebar: true,
-      loadNavbar: true,
-      subMaxLevel: 2,
-      auto2top: true,     // 自动跳转到页面顶部
-      mergeNavbar: true,  // 小屏设备下合并导航栏到侧边栏
-      coverpage: false,   // 是否启用封面页
-      notFoundPage: true, // 404页面
+      autoHeader: true,
+      subMaxLevel: 3,
+      sidebarDisplayLevel: 1, // 设置侧边栏默认展开层级
+
+      //自动生成导航
+      auto2top: true,
+      mergeNavbar: true,
+      //自动生成页面标题
+      autoHeader: true,
+
+      //搜索配置
       search: {
-        maxAge: 86400000,
         paths: 'auto',
         placeholder: '搜索...',
         noData: '没有找到结果',
         depth: 6
       },
-      // 主题配置
+
+      //主题配置
       themeable: {
         readyTransition: true,
         responsiveTables: true
-      }
+      },
+
+      //分页导航
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+
+      // 配置文件别名，处理路径问题
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md',
+        // 添加知识库目录的别名
+        '^/知识库/(.*)': '/知识库/$1'
+      },
+
+      // 配置路径匹配
+      routes: {
+        '/知识库/.*': '知识库'
+      },
+
+      // 显示文件路径
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+
+      // 启用调试模式
+      debug: true,
+
+      // 插件调试
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (content) {
+            // 打印当前访问的文件路径
+            console.log('Loading file:', vm.route.file);
+            return content;
+          });
+        }
+      ]
     };
   </script>
   <!-- docsify -->
@@ -53,6 +96,10 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <!-- 字数统计插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-count/dist/countable.min.js"></script>
+  <!-- 侧边栏折叠插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- 分页导航插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
 
 </html>
