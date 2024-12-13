@@ -35,7 +35,8 @@
               "title": "DAS蓝牙调试日志"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -184,13 +185,16 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
-      "digitalgarden:Digital Garden Publication Center": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0275aaf8f7a53368",
+  "active": "5d7d8a49bf6e1888",
   "lastOpenFiles": [
+    "知识库/备忘/米度云MDNET3.0.md",
+    "知识库/备忘/README.md",
+    "知识库/备忘",
     "知识库/指令文档/DAS蓝牙调试日志.md",
+    "知识库/备忘/米度云 MDNET3.0.md",
     "知识库/指令文档/米度指令.md",
     "知识库/指令文档/一体化.md",
     "知识库/指令文档/_sidebar.md",
@@ -215,7 +219,6 @@
     "my-docs/next.config.mjs",
     "my-docs/next.config.js",
     "my-docs/content/米度指令.md",
-    "my-docs/src/app/[slug]/page.tsx",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/README.md",
@@ -223,9 +226,6 @@
     "my-docs/node_modules/unist-util-remove/readme.md",
     "my-docs/node_modules/gray-matter/node_modules/js-yaml/README.md",
     "my-docs/node_modules/gray-matter/node_modules/js-yaml/CHANGELOG.md",
-    "my-docs/node_modules/unist-util-remove/node_modules/unist-util-is/readme.md",
-    "my-docs/node_modules/@babel/code-frame/README.md",
-    "my-docs/node_modules/unist-util-remove/node_modules/@types/unist/README.md",
     "my-docs/node_modules/next-mdx-remote/header.png",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
