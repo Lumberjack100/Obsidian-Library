@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "知识库/备忘/监测业务中台后端.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "监测业务中台后端"
             }
           }
         ],
@@ -190,6 +190,7 @@
   },
   "active": "ddda42e975c3e71f",
   "lastOpenFiles": [
+    "README.md",
     "知识库/备忘/README.md",
     "_sidebar.md",
     "知识库/README.md",
@@ -208,7 +209,6 @@
     "generate-docsify.js",
     "_navbar.md",
     "知识库/指令文档/DAS 蓝牙调试日志.md",
-    "README.md",
     "知识库/一句话识别Android SDK.md",
     "知识库/_navbar.md",
     "知识库/_sidebar.md",
