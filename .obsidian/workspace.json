@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/指令文档/米度指令.md",
-                "mode": "source",
+                "file": "知识库/备忘/工作汇报.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "米度指令"
+              "title": "工作汇报"
             }
           }
         ],
@@ -190,9 +190,9 @@
   },
   "active": "ddda42e975c3e71f",
   "lastOpenFiles": [
+    "知识库/指令文档/米度指令.md",
     "知识库/备忘/工作内容及工作成果.txt",
     "知识库/指令文档/README.md",
-    "知识库/指令文档/米度指令.md",
     "知识库/指令文档/DAS蓝牙调试日志.md",
     "知识库/备忘/工作汇报.md",
     "知识库/备忘/监测业务中台后端.md",
@@ -220,7 +220,6 @@
     "知识库/指令文档",
     "知识库/Home.md",
     "my-docs/next.config.mjs",
-    "my-docs/next.config.js",
     "my-docs/content/米度指令.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
