@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/指令文档/DAS蓝牙调试日志.md",
+                "file": "知识库/指令文档/米度指令.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "DAS蓝牙调试日志"
+              "title": "米度指令"
             }
           }
         ],
@@ -108,10 +108,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/指令文档/米度指令.md"
+                "file": "知识库/备忘/监测业务中台后端.md"
               },
               "icon": "lucide-list",
-              "title": "米度指令 的大纲"
+              "title": "监测业务中台后端 的大纲"
             }
           },
           {
@@ -188,19 +188,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5d7d8a49bf6e1888",
+  "active": "ddda42e975c3e71f",
   "lastOpenFiles": [
-    "知识库/备忘/米度云MDNET3.0.md",
-    "知识库/备忘/README.md",
-    "知识库/备忘",
-    "知识库/指令文档/DAS蓝牙调试日志.md",
-    "知识库/备忘/米度云 MDNET3.0.md",
+    "知识库/备忘/工作内容及工作成果.txt",
+    "知识库/指令文档/README.md",
     "知识库/指令文档/米度指令.md",
+    "知识库/指令文档/DAS蓝牙调试日志.md",
+    "知识库/备忘/工作汇报.md",
+    "知识库/备忘/监测业务中台后端.md",
+    "知识库/README.md",
+    "知识库/备忘/米度云MDNET3.0.md",
+    "知识库/备忘/米易通物联网.md",
+    "知识库/备忘",
+    "知识库/备忘/米度云 MDNET3.0.md",
     "知识库/指令文档/一体化.md",
     "知识库/指令文档/_sidebar.md",
-    "知识库/指令文档/README.md",
     "generate-docsify.js",
-    "知识库/README.md",
     "_sidebar.md",
     "_navbar.md",
     "知识库/指令文档/DAS 蓝牙调试日志.md",
@@ -223,9 +226,6 @@
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/CHANGELOG.md",
     "my-docs/node_modules/parse-entities/node_modules/@types/unist/README.md",
     "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/API.md",
-    "my-docs/node_modules/unist-util-remove/readme.md",
-    "my-docs/node_modules/gray-matter/node_modules/js-yaml/README.md",
-    "my-docs/node_modules/gray-matter/node_modules/js-yaml/CHANGELOG.md",
     "my-docs/node_modules/next-mdx-remote/header.png",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
