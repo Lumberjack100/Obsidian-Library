@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/备忘/工作汇报.md",
+                "file": "README.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "工作汇报"
+              "title": "README"
             }
           }
         ],
@@ -190,21 +190,22 @@
   },
   "active": "ddda42e975c3e71f",
   "lastOpenFiles": [
+    "知识库/备忘/README.md",
+    "_sidebar.md",
+    "知识库/README.md",
+    "知识库/备忘/监测业务中台后端.md",
+    "知识库/备忘/米度云MDNET3.0.md",
+    "知识库/备忘/工作汇报.md",
     "知识库/指令文档/米度指令.md",
     "知识库/备忘/工作内容及工作成果.txt",
     "知识库/指令文档/README.md",
     "知识库/指令文档/DAS蓝牙调试日志.md",
-    "知识库/备忘/工作汇报.md",
-    "知识库/备忘/监测业务中台后端.md",
-    "知识库/README.md",
-    "知识库/备忘/米度云MDNET3.0.md",
     "知识库/备忘/米易通物联网.md",
     "知识库/备忘",
     "知识库/备忘/米度云 MDNET3.0.md",
     "知识库/指令文档/一体化.md",
     "知识库/指令文档/_sidebar.md",
     "generate-docsify.js",
-    "_sidebar.md",
     "_navbar.md",
     "知识库/指令文档/DAS 蓝牙调试日志.md",
     "README.md",
