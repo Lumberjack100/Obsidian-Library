@@ -1,7 +1,7 @@
 ##  async/await 优点
 
-1. **代码可读性差**
-```javascript
+### 代码可读性差
+```
 // 不使用 async/await (回调地狱)
 getUserInfo() {
   global.$http.get('/GetUserByToken').then(res => {
@@ -29,11 +29,12 @@ async getUserInfo() {
     await this.projectNumber();
   }
 }
+
 ```
 
 
-2. **错误处理复杂**
-```javascript
+### 错误处理复杂
+```
 // 不使用 async/await (多个 catch 块)
 startUserLogin() {
   global.$http.post('/SignIn', this.loginParams)
@@ -63,8 +64,8 @@ async startUserLogin() {
 }
 ```
 
-3. **并发控制困难**
-```javascript
+### 并发控制困难
+```
 // 不使用 async/await (难以控制执行顺序)
 projectNumber() {
   global.$http.post('/QueryProjectList')
@@ -83,8 +84,8 @@ async projectNumber() {
 ```
 
 
-4. **状态管理混乱**
-```javascript
+### 状态管理混乱
+```
 // 不使用 async/await (状态可能不同步)
 startUserLogin() {
   let userToken;
@@ -109,13 +110,13 @@ async startUserLogin() {
 
 
 
-5. **调试困难**
+### 调试困难
 
 - 不使用 async/await 时，错误堆栈可能不完整
 - Promise 链中的错误可能被静默处理
 - 断点调试时难以跟踪执行流程
 
-总结：
+### 总结
 - 虽然不使用 async/await 代码也能工作，但会带来：
 - 代码可读性降低
 - 错误处理复杂化
