@@ -1,0 +1,98 @@
+// 接口 "/QueryProjectWithMonitorStatistics" 返回数据格式如下：
+{
+    "code": 0,
+    "msg": null,
+    "data": [
+        {
+            "companyID": 138,
+            "level": -1,
+            "projectName": "XXX水库在线监测系统",
+            "shortName": "XXX水库",
+            "projectType": 1,
+            "expiryDate": "2027-12-03 00:00:00",
+            "directManageUnit": "上海米度测控科技有限公司",
+            "enable": true,
+            "location": "330281",
+            "projectAddress": "浙江省宁波市余姚市梨洲街道3溪村坐山庵52号西北约269米",
+            "latitude": 29.98304,
+            "longitude": 121.11946,
+            "imagePath": "ali-oss-e66b9490-7d60-4bd1-ac2d-af3e50dc0edb",
+            "projectDesc": null,
+            "modelID": 1,
+            "extend": null,
+            "createTime": "2024-12-03 11:40:00",
+            "createUserID": 540,
+            "updateTime": "2025-01-10 09:33:59",
+            "updateUserID": 541,
+            "projectTypeName": "水库",
+            "projectMainTypeName": "水文水利",
+            "operationStatus": 1,
+            "warnStatus": 0,
+            "locationInfo": "余姚市",
+            "monitorItemList": [
+                {
+                    "monitorItemID": 6614,
+                    "monitorType": 2,
+                    "monitorItemName": "库水位",
+                    "monitorPointCount": 1
+                },
+                {
+                    "monitorItemID": 6616,
+                    "monitorType": 5,
+                    "monitorItemName": "雨量",
+                    "monitorPointCount": 2
+                },
+                {
+                    "monitorItemID": 6617,
+                    "monitorType": 15,
+                    "monitorItemName": "气象",
+                    "monitorPointCount": 3
+                },
+                {
+                    "monitorItemID": 6628,
+                    "monitorType": 18,
+                    "monitorItemName": "地表位移",
+                    "monitorPointCount": 5
+                },
+                {
+                    "monitorItemID": 6629,
+                    "monitorType": 22,
+                    "monitorItemName": "裂缝",
+                    "monitorPointCount": 2
+                },
+                {
+                    "monitorItemID": 6638,
+                    "monitorType": 20071,
+                    "monitorItemName": "裂缝计",
+                    "monitorPointCount": 5
+                },
+                {
+                    "monitorItemID": 6645,
+                    "monitorType": 25,
+                    "monitorItemName": "内部位移",
+                    "monitorPointCount": 3
+                },
+                {
+                    "monitorItemID": 6674,
+                    "monitorType": 40,
+                    "monitorItemName": "视频监控",
+                    "monitorPointCount": 6
+                },
+                {
+                    "monitorItemID": 6678,
+                    "monitorType": 50,
+                    "monitorItemName": "浸润线",
+                    "monitorPointCount": 6
+                }
+            ],
+            "id": 1085
+        }
+    ]
+}
+
+projectList.vue 页面用来显示项目列表，支持以行业类型、行政区域筛选进行分组展示，请你优化 projectList.vue 代码以及附属的 projectList.css 文件，要求：
+1. 重新命名 class 名称，同步修改 css 文件中的 class 名称
+2. 重新命名 data() 中的变量名称
+3. 重新命名 methods 中的方法名称,驼峰命名，名称符合业务逻辑，优化代码结构，使代码更加清晰易读
+4. "/QueryUserListProjectEx"、"/QueryUserTypeProject"、"/QueryUserRegionListProject"、"/QueryRegisterTimeProject" 四个接口使用一个新的接口 "/QueryProjectWithMonitorStatistics" 代替，接口参数为 companyID、projectName
+5. 添加清晰的注释
