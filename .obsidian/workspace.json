@@ -8,6 +8,20 @@
         "type": "tabs",
         "children": [
           {
+            "id": "ddda42e975c3e71f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "知识库/备忘/工作汇报.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "工作汇报"
+            }
+          },
+          {
             "id": "4a133608dfed4892",
             "type": "leaf",
             "state": {
@@ -22,21 +36,21 @@
             }
           },
           {
-            "id": "ddda42e975c3e71f",
+            "id": "0d433c910398344d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/指令文档/米度指令.md",
+                "file": "知识库/提示词/README.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "米度指令"
+              "title": "README"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -92,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 250.5
   },
   "right": {
     "id": "b131aeee0fc28854",
@@ -108,10 +122,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/指令文档/米度指令.md"
+                "file": "知识库/提示词/README.md"
               },
               "icon": "lucide-list",
-              "title": "米度指令 的大纲"
+              "title": "README 的大纲"
             }
           },
           {
@@ -187,22 +201,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ddda42e975c3e71f",
+  "active": "0d433c910398344d",
   "lastOpenFiles": [
+    "知识库/备忘/README.md",
+    "知识库/提示词/README.md",
+    "知识库/提示词/米度云3.0.md",
+    "知识库/指令文档/米度指令.md",
+    "知识库/指令文档/DAS蓝牙调试日志.md",
+    "知识库/备忘/工作汇报.md",
+    "知识库/提示词",
     "知识库/备忘/js异步处理.md",
     "知识库/备忘/js异步处理知识点.md",
-    "知识库/指令文档/米度指令.md",
     "知识库/备忘/监测业务中台后端.md",
     "知识库/备忘/App Store 上架.md",
-    "知识库/备忘/README.md",
     "知识库/指令文档/README.md",
     "知识库/README.md",
     "README.md",
     "_sidebar.md",
     "知识库/备忘/米度云MDNET3.0.md",
-    "知识库/备忘/工作汇报.md",
     "知识库/备忘/工作内容及工作成果.txt",
-    "知识库/指令文档/DAS蓝牙调试日志.md",
     "知识库/备忘/米易通物联网.md",
     "知识库/备忘",
     "知识库/备忘/米度云 MDNET3.0.md",
@@ -222,9 +239,6 @@
     "generate-sidebar.js",
     "知识库/指令文档",
     "知识库/Home.md",
-    "my-docs/next.config.mjs",
-    "my-docs/content/米度指令.md",
-    "my-docs/node_modules/@tailwindcss/typography/node_modules/postcss-selector-parser/README.md",
     "my-docs/node_modules/next-mdx-remote/header.png",
     "my-docs/public/window.svg",
     "my-docs/public/vercel.svg",
