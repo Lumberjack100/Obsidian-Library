@@ -1,0 +1,33 @@
+{
+  "NextButton": true,
+  "notionAPINext": "",
+  "databaseIDNext": "",
+  "bannerUrl": "",
+  "notionUser": "",
+  "NotionLinkDisplay": true,
+  "proxy": "",
+  "GeneralButton": true,
+  "tagButton": true,
+  "customTitleButton": false,
+  "customTitleName": "",
+  "notionAPIGeneral": "",
+  "databaseIDGeneral": "",
+  "CustomButton": false,
+  "CustomValues": "",
+  "notionAPICustom": "",
+  "databaseIDCustom": "",
+  "databaseDetails": {
+    "ob2notion": {
+      "format": "general",
+      "fullName": "Obsidian 文章存档",
+      "abName": "ob2notion",
+      "notionAPI": "ntn_jH9552298908DFJoXx4DAIc3WfN7PNWMcb6LSw9cOIi1KP",
+      "databaseID": "1c578eac09f646fe97d82462b4463d64",
+      "tagButton": false,
+      "customTitleButton": false,
+      "customTitleName": "",
+      "customProperties": [],
+      "saved": true
+    }
+  }
+}
