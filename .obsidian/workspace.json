@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "知识库/指令文档/MR702页面指令参数.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -93,7 +94,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/指令文档/MR702页面指令参数.md"
+                "file": "知识库/指令文档/MR702页面指令参数.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
               "title": "MR702页面指令参数 的大纲"
@@ -139,7 +143,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "标签"
@@ -155,12 +161,11 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 373.5
   },
   "left-ribbon": {
     "hiddenItems": {
