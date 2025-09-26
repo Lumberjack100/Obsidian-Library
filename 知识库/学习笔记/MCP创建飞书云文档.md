@@ -8,7 +8,7 @@
 4. 适当使用加粗、高亮对文档中核心关键字进行修饰，使其格式优美
 5. 对于文字长度超过 300 的文档
 
-
+请你严格按照要求创建一个飞书云文档
 
 
 使用 飞书 mcp 工具，执行以下命令先授权：
@@ -17,4 +17,4 @@
 npx -y @larksuiteoapi/lark-mcp login -a cli_a8c398b01771501c -s pZHfXcynnRkkfJDUa5TiRcqt1HuyWUJV
 ```
 
-请你严格按照要求创建一个飞书云文档
+
