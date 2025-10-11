@@ -18,3 +18,5 @@ npx -y @larksuiteoapi/lark-mcp login -a cli_a8c398b01771501c -s pZHfXcynnRkkfJDU
 ```
 
 
+上传到 `Lumberjack` 知识库中
+
