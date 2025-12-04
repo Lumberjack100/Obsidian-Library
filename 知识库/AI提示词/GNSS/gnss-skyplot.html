@@ -227,159 +227,8 @@
             </p>
         </section>
 
-        <!-- File Upload Section -->
-        <section class="mb-8 opacity-0 animate-fade-in-up animate-delay-100">
-            <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-200 dark:border-dark-border">
-                <!-- Mode Toggle -->
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
-                            <i class="fas fa-upload text-violet-600 dark:text-violet-400"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold">数据上传</h3>
-                    </div>
-                    <div class="mode-toggle flex items-center">
-                        <div class="mode-toggle-indicator" id="modeIndicator" style="left: 4px; width: 80px;"></div>
-                        <button class="mode-toggle-btn active" id="singleModeBtn" onclick="switchMode('single')">单文件</button>
-                        <button class="mode-toggle-btn" id="dualModeBtn" onclick="switchMode('dual')">对比模式</button>
-                    </div>
-                </div>
-
-                <!-- Single File Mode -->
-                <div id="singleModeUpload">
-                    <div class="upload-zone rounded-xl p-8 text-center cursor-pointer" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-                        <input type="file" id="fileInput" accept=".bin" class="hidden" onchange="handleFileSelect(event)">
-                        <div id="uploadPlaceholder">
-                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400"></i>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-400 mb-2">拖拽 .bin 文件到此处，或点击选择文件</p>
-                            <p class="text-sm text-gray-400 dark:text-gray-500">支持标准 RTCM3 格式的二进制数据文件</p>
-                        </div>
-                        <div id="uploadProgress" class="hidden">
-                            <div class="flex items-center justify-center gap-3 mb-4">
-                                <i class="fas fa-spinner animate-spin text-2xl text-indigo-500"></i>
-                                <span class="text-gray-700 dark:text-gray-300" id="progressText">解析中...</span>
-                            </div>
-                            <div class="w-full max-w-md mx-auto bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-indigo-500 h-2 rounded-full transition-all duration-300" id="progressBar" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div id="uploadSuccess" class="hidden">
-                            <div class="flex items-center justify-center gap-3">
-                                <i class="fas fa-check-circle text-2xl text-emerald-500"></i>
-                                <div class="text-left">
-                                    <p class="font-medium text-gray-700 dark:text-gray-300" id="fileName"></p>
-                                    <p class="text-sm text-gray-500" id="fileInfo"></p>
-                                </div>
-                                <button class="ml-4 px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg" onclick="event.stopPropagation(); clearUpload()">
-                                    <i class="fas fa-times mr-1"></i>清除
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dual File Mode -->
-                <div id="dualModeUpload" class="hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Base Station -->
-                        <div class="upload-zone rounded-xl p-6 text-center cursor-pointer" id="baseUploadZone" onclick="document.getElementById('baseFileInput').click()">
-                            <input type="file" id="baseFileInput" accept=".bin" class="hidden" onchange="handleBaseFileSelect(event)">
-                            <div id="basePlaceholder">
-                                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                                    <i class="fas fa-broadcast-tower text-xl text-blue-500"></i>
-                                </div>
-                                <p class="font-medium text-gray-700 dark:text-gray-300 mb-1">基站数据</p>
-                                <p class="text-sm text-gray-400">点击或拖拽上传</p>
-                            </div>
-                            <div id="baseSuccess" class="hidden">
-                                <div class="flex items-center justify-center gap-2">
-                                    <i class="fas fa-check-circle text-emerald-500"></i>
-                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300" id="baseFileName"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Rover Station -->
-                        <div class="upload-zone rounded-xl p-6 text-center cursor-pointer" id="roverUploadZone" onclick="document.getElementById('roverFileInput').click()">
-                            <input type="file" id="roverFileInput" accept=".bin" class="hidden" onchange="handleRoverFileSelect(event)">
-                            <div id="roverPlaceholder">
-                                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                    <i class="fas fa-location-dot text-xl text-emerald-500"></i>
-                                </div>
-                                <p class="font-medium text-gray-700 dark:text-gray-300 mb-1">测站数据</p>
-                                <p class="text-sm text-gray-400">点击或拖拽上传</p>
-                            </div>
-                            <div id="roverSuccess" class="hidden">
-                                <div class="flex items-center justify-center gap-2">
-                                    <i class="fas fa-check-circle text-emerald-500"></i>
-                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300" id="roverFileName"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dualProgress" class="hidden mt-4">
-                        <div class="flex items-center justify-center gap-3">
-                            <i class="fas fa-spinner animate-spin text-indigo-500"></i>
-                            <span class="text-gray-600 dark:text-gray-400" id="dualProgressText">解析中...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline Player Section -->
-        <section id="timelineSection" class="mb-8 hidden">
-            <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-200 dark:border-dark-border">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
-                            <i class="fas fa-clock text-cyan-600 dark:text-cyan-400"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold">时间轴播放</h3>
-                    </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <span class="text-gray-500 dark:text-gray-400">历元:</span>
-                        <span class="font-mono font-medium" id="currentEpoch">0</span>
-                        <span class="text-gray-400">/</span>
-                        <span class="font-mono text-gray-500" id="totalEpochs">0</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-2">
-                        <button class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" onclick="skipBackward()" title="后退10帧">
-                            <i class="fas fa-backward"></i>
-                        </button>
-                        <button class="p-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white transition-colors" id="playPauseBtn" onclick="togglePlayPause()">
-                            <i class="fas fa-play" id="playIcon"></i>
-                        </button>
-                        <button class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" onclick="skipForward()" title="前进10帧">
-                            <i class="fas fa-forward"></i>
-                        </button>
-                    </div>
-                    <div class="flex-1">
-                        <input type="range" class="timeline-slider" id="timelineSlider" min="0" max="100" value="0" oninput="seekTimeline(this.value)">
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <label class="text-sm text-gray-500 dark:text-gray-400">速度:</label>
-                        <select class="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded-lg border-0" id="playbackSpeed" onchange="changePlaybackSpeed(this.value)">
-                            <option value="0.5">0.5x</option>
-                            <option value="1" selected>1x</option>
-                            <option value="2">2x</option>
-                            <option value="5">5x</option>
-                            <option value="10">10x</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mt-3 text-center">
-                    <span class="text-sm text-gray-500 dark:text-gray-400">时间戳: </span>
-                    <span class="font-mono text-sm" id="currentTimestamp">--:--:--</span>
-                </div>
-            </div>
-        </section>
-
         <!-- Concepts Section -->
-        <section class="mb-12 opacity-0 animate-fade-in-up animate-delay-100">
+        <section class="mb-8 opacity-0 animate-fade-in-up animate-delay-100">
             <div class="flex items-center gap-2 mb-6">
                 <div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                     <i class="fas fa-book-open text-indigo-600 dark:text-indigo-400"></i>
@@ -530,6 +379,157 @@
                             <strong>低仰角卫星</strong>（< 15°）更容易受多路径影响，通常会被设备过滤。
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Upload Section -->
+        <section class="mb-8 opacity-0 animate-fade-in-up animate-delay-100">
+            <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-200 dark:border-dark-border">
+                <!-- Mode Toggle -->
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                            <i class="fas fa-upload text-violet-600 dark:text-violet-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">数据上传</h3>
+                    </div>
+                    <div class="mode-toggle flex items-center">
+                        <div class="mode-toggle-indicator" id="modeIndicator" style="left: 4px; width: 80px;"></div>
+                        <button class="mode-toggle-btn active" id="singleModeBtn" onclick="switchMode('single')">单文件</button>
+                        <button class="mode-toggle-btn" id="dualModeBtn" onclick="switchMode('dual')">对比模式</button>
+                    </div>
+                </div>
+
+                <!-- Single File Mode -->
+                <div id="singleModeUpload">
+                    <div class="upload-zone rounded-xl p-8 text-center cursor-pointer" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                        <input type="file" id="fileInput" accept=".bin" class="hidden" onchange="handleFileSelect(event)">
+                        <div id="uploadPlaceholder">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">拖拽 .bin 文件到此处，或点击选择文件</p>
+                            <p class="text-sm text-gray-400 dark:text-gray-500">支持标准 RTCM3 格式的二进制数据文件</p>
+                        </div>
+                        <div id="uploadProgress" class="hidden">
+                            <div class="flex items-center justify-center gap-3 mb-4">
+                                <i class="fas fa-spinner animate-spin text-2xl text-indigo-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300" id="progressText">解析中...</span>
+                            </div>
+                            <div class="w-full max-w-md mx-auto bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full transition-all duration-300" id="progressBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div id="uploadSuccess" class="hidden">
+                            <div class="flex items-center justify-center gap-3">
+                                <i class="fas fa-check-circle text-2xl text-emerald-500"></i>
+                                <div class="text-left">
+                                    <p class="font-medium text-gray-700 dark:text-gray-300" id="fileName"></p>
+                                    <p class="text-sm text-gray-500" id="fileInfo"></p>
+                                </div>
+                                <button class="ml-4 px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg" onclick="event.stopPropagation(); clearUpload()">
+                                    <i class="fas fa-times mr-1"></i>清除
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dual File Mode -->
+                <div id="dualModeUpload" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Base Station -->
+                        <div class="upload-zone rounded-xl p-6 text-center cursor-pointer" id="baseUploadZone" onclick="document.getElementById('baseFileInput').click()">
+                            <input type="file" id="baseFileInput" accept=".bin" class="hidden" onchange="handleBaseFileSelect(event)">
+                            <div id="basePlaceholder">
+                                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <i class="fas fa-broadcast-tower text-xl text-blue-500"></i>
+                                </div>
+                                <p class="font-medium text-gray-700 dark:text-gray-300 mb-1">基站数据</p>
+                                <p class="text-sm text-gray-400">点击或拖拽上传</p>
+                            </div>
+                            <div id="baseSuccess" class="hidden">
+                                <div class="flex items-center justify-center gap-2">
+                                    <i class="fas fa-check-circle text-emerald-500"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300" id="baseFileName"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Rover Station -->
+                        <div class="upload-zone rounded-xl p-6 text-center cursor-pointer" id="roverUploadZone" onclick="document.getElementById('roverFileInput').click()">
+                            <input type="file" id="roverFileInput" accept=".bin" class="hidden" onchange="handleRoverFileSelect(event)">
+                            <div id="roverPlaceholder">
+                                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                                    <i class="fas fa-location-dot text-xl text-emerald-500"></i>
+                                </div>
+                                <p class="font-medium text-gray-700 dark:text-gray-300 mb-1">测站数据</p>
+                                <p class="text-sm text-gray-400">点击或拖拽上传</p>
+                            </div>
+                            <div id="roverSuccess" class="hidden">
+                                <div class="flex items-center justify-center gap-2">
+                                    <i class="fas fa-check-circle text-emerald-500"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300" id="roverFileName"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dualProgress" class="hidden mt-4">
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fas fa-spinner animate-spin text-indigo-500"></i>
+                            <span class="text-gray-600 dark:text-gray-400" id="dualProgressText">解析中...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Player Section -->
+        <section id="timelineSection" class="mb-8 hidden">
+            <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-200 dark:border-dark-border">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
+                            <i class="fas fa-clock text-cyan-600 dark:text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">时间轴播放</h3>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <span class="text-gray-500 dark:text-gray-400">历元:</span>
+                        <span class="font-mono font-medium" id="currentEpoch">0</span>
+                        <span class="text-gray-400">/</span>
+                        <span class="font-mono text-gray-500" id="totalEpochs">0</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <button class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" onclick="skipBackward()" title="后退10帧">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button class="p-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white transition-colors" id="playPauseBtn" onclick="togglePlayPause()">
+                            <i class="fas fa-play" id="playIcon"></i>
+                        </button>
+                        <button class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" onclick="skipForward()" title="前进10帧">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                    </div>
+                    <div class="flex-1">
+                        <input type="range" class="timeline-slider" id="timelineSlider" min="0" max="100" value="0" oninput="seekTimeline(this.value)">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm text-gray-500 dark:text-gray-400">速度:</label>
+                        <select class="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded-lg border-0" id="playbackSpeed" onchange="changePlaybackSpeed(this.value)">
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="2">2x</option>
+                            <option value="5">5x</option>
+                            <option value="10">10x</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">时间戳: </span>
+                    <span class="font-mono text-sm" id="currentTimestamp">--:--:--</span>
                 </div>
             </div>
         </section>
